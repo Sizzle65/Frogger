@@ -12,7 +12,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{73119704-0DF9-4E57-B480-7029EE650E16}</ProjectGuid>
-    <RootNamespace>A05 - SAT</RootNamespace>
+    <RootNamespace>Frogger</RootNamespace>
     <ProjectName>Frogger</ProjectName>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>

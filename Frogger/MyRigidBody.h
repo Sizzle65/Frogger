@@ -82,13 +82,6 @@ public:
 	void AddToRenderList(void);
 
 	/*
-	USAGE: Will render the planes between bodies 
-	ARGUMENTS: ---
-	Output: ---
-	*/
-	void AddToRenderList(MyRigidBody* const a_pOther);
-
-	/*
 	USAGE: Clears the colliding list
 	ARGUMENTS: ---
 	OUTPUT: ---

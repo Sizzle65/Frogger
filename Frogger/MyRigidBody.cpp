@@ -246,7 +246,6 @@ bool MyRigidBody::IsColliding(MyRigidBody* const a_pOther)
 		a_pOther->RemoveCollisionWith(this);
 	}
 
-	AddToRenderList(a_pOther);
 	return bColliding;
 }
 void MyRigidBody::AddToRenderList(void)
@@ -274,88 +273,6 @@ void MyRigidBody::AddToRenderList(void)
 	}
 }
 
-void Simplex::MyRigidBody::AddToRenderList(MyRigidBody* const a_pOther)
-{
-	if (m_bVisibleSAT)
-	{
-		if (m_CollidingRBSet.size() == 0)
-		{
-			//std::cout << result << std::endl;
-			matrix4 mat = glm::translate((a_pOther->GetCenterGlobal() - GetCenterGlobal()) / 2 + GetCenterGlobal());
-			vector3 color = C_RED;
-			if (result == eSATResults::SAT_NONE) //no planes checked
-			{
-				mat *= glm::scale(vector3(0, 0, 0));
-			}
-			else if (result == eSATResults::SAT_AX) //left or right
-			{
-				mat *= glm::scale(vector3(0, 3, 3));
-				color = C_RED;
-			}
-			else if (result == eSATResults::SAT_AY) //up or down
-			{
-				mat = glm::rotate(mat, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 1.0f));
-				mat *= glm::scale(vector3(0, 3, 3));
-				color = C_GREEN;
-			}
-			else if (result == eSATResults::SAT_AZ) //forward or backward
-			{
-				mat = glm::rotate(mat, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-				mat *= glm::scale(vector3(0, 3, 3));
-				color = C_BLUE;
-			}
-			else if (result == eSATResults::SAT_AXxBX)
-			{
-				mat = glm::rotate(mat, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-				mat *= glm::scale(vector3(0, 3, 3));
-				color = C_BLACK;
-			}
-			else if (result == eSATResults::SAT_AXxBY)
-			{
-				mat = glm::rotate(mat, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-				mat *= glm::scale(vector3(0, 3, 3));
-				color = C_BLACK;
-			}
-			else if (result == eSATResults::SAT_AXxBZ)
-			{
-				mat = glm::rotate(mat, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-				mat *= glm::scale(vector3(0, 3, 3));
-				color = C_BLACK;
-			}
-			else if (result == eSATResults::SAT_AYxBX)
-			{
-				mat = glm::rotate(mat, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-				mat *= glm::scale(vector3(0, 3, 3));
-				color = C_BLACK;
-			}
-			else if (result == eSATResults::SAT_AYxBY)
-			{
-				mat = glm::rotate(mat, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-				mat *= glm::scale(vector3(0, 3, 3));
-				color = C_BLACK;
-			}
-			else if (result == eSATResults::SAT_AZxBX)
-			{
-				mat = glm::rotate(mat, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-				mat *= glm::scale(vector3(0, 3, 3));
-				color = C_BLACK;
-			}
-			else if (result == eSATResults::SAT_AZxBY)
-			{
-				mat = glm::rotate(mat, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-				mat *= glm::scale(vector3(0, 3, 3));
-				color = C_BLACK;
-			}
-			else if (result == eSATResults::SAT_AZxBZ)
-			{
-				mat = glm::rotate(mat, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-				mat *= glm::scale(vector3(0, 3, 3));
-				color = C_BLACK;
-			}
-			m_pMeshMngr->AddCubeToRenderList(mat, color);
-		}
-	}
-}
 
 uint MyRigidBody::SAT(MyRigidBody* const a_pOther)
 {
