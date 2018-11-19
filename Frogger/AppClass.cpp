@@ -7,8 +7,8 @@ void Application::InitVariables(void)
 
 	//Set the position and target of the camera
 	m_pCameraMngr->SetPositionTargetAndUpward(
-		vector3(0.0f, 3.0f, 13.0f), //Position
-		vector3(0.0f, 3.0f, 12.0f),	//Target
+		vector3(0.0f, 3.0f, 8.0f), //Position
+		vector3(0.0f, 3.0f, 7.0f),	//Target
 		AXIS_Y);					//Up
 
 	m_pLightMngr->SetPosition(vector3(0.0f, 3.0f, 13.0f), 1); //set the position of first light(0 is reserved for global light)

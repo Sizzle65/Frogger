@@ -78,6 +78,26 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 	case sf::Keyboard::RShift:
 		m_bModifier = true;
 		break;
+	case sf::Keyboard::Left:
+		m_v3Creeper.x -= m_fGridSnap;
+
+		m_v3Creeper.x = (int)m_v3Creeper.x;
+		break;
+	case sf::Keyboard::Right:
+		m_v3Creeper.x += m_fGridSnap;
+
+		m_v3Creeper.x = (int)m_v3Creeper.x;
+		break;
+	case sf::Keyboard::Up:
+		m_v3Creeper.y += m_fGridSnap;
+
+		m_v3Creeper.y = (int)m_v3Creeper.y;
+		break;
+	case sf::Keyboard::Down:
+		m_v3Creeper.y -= m_fGridSnap;
+
+		m_v3Creeper.y = (int)m_v3Creeper.y;
+		break;
 	}
 	
 	//gui
@@ -428,28 +448,54 @@ void Application::ProcessKeyboard(void)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
 		m_pCameraMngr->MoveVertical(m_fMovementSpeed * fMultiplier);
 #pragma endregion
-	//move the creeper
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-		m_v3Creeper.x -= 0.1f;
+	////move the creeper
+	//if (!m_bLeftDown && sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	//{
+	//	m_v3Creeper.x -= m_fGridSnap;
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-		m_v3Creeper.x += 0.1f;
+	//	m_v3Creeper.x = (int)m_v3Creeper.x;
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-	{
-		if (m_bModifier)
-			m_v3Creeper.z -= 0.1f;
-		else
-			m_v3Creeper.y += 0.1f;
-	}
+	//	m_bLeftDown = true;
+	//}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-	{
-		if (m_bModifier)
-			m_v3Creeper.z += 0.1f;
-		else
-			m_v3Creeper.y -= 0.1f;
-	}
+	//if (!m_bRightDown && sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	//{
+	//	m_v3Creeper.x += m_fGridSnap;
+
+	//	m_v3Creeper.x = (int)m_v3Creeper.x;
+
+	//	m_bRightDown = true;
+	//}
+
+	//if (!m_bUpDown && sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	//{
+	//	if (m_bModifier)
+	//		m_v3Creeper.z -= m_fGridSnap;
+	//	else
+	//	{
+	//		m_v3Creeper.y += m_fGridSnap;
+
+	//		m_v3Creeper.y = (int)m_v3Creeper.y;
+	//		//std::cout << "  y =" << m_v3Creeper.y << std::endl;
+
+	//		m_bUpDown = true;
+	//	}
+	//}
+
+	//if (!m_bDownDown && sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	//{
+	//	if (m_bModifier)
+	//		m_v3Creeper.z += 0.1f;
+	//	else
+	//	{
+	//		m_v3Creeper.y -= 1.0f;
+
+	//		m_v3Creeper.y = (int)m_v3Creeper.y;
+	//		//std::cout << "  y =" << m_v3Creeper.y << std::endl;
+
+	//		m_bDownDown = true;
+	//	}
+	//}
 
 	//Orient the creeper
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::X))
