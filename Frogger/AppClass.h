@@ -27,6 +27,8 @@ class Application
 	MyRigidBody* m_pSteveRB = nullptr; //Rigid Body of the model
 
 	String m_sProgrammer = "Alberto Bobadilla - labigm@rit.edu"; //programmer
+
+	float m_fGridSnap = 1.0f; //distance between snap points for movement
 private:
 	static ImGuiObject gui; //GUI object
 	bool m_bGUI_Main = true; //show Main GUI window?
