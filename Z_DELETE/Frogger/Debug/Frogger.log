@@ -1,46 +1,51 @@
-﻿  AppClass.cpp
+﻿  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  AppClass.cpp
   AppClassControls.cpp
-c:\users\patrick\source\repos\frogger\frogger\appclasscontrols.cpp(84): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+c:\users\sisai\source\repos\frogger\frogger\appclasscontrols.cpp(84): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\patrick\source\repos\frogger\frogger\appclasscontrols.cpp(89): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+c:\users\sisai\source\repos\frogger\frogger\appclasscontrols.cpp(89): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\patrick\source\repos\frogger\frogger\appclasscontrols.cpp(94): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+c:\users\sisai\source\repos\frogger\frogger\appclasscontrols.cpp(94): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\patrick\source\repos\frogger\frogger\appclasscontrols.cpp(99): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+c:\users\sisai\source\repos\frogger\frogger\appclasscontrols.cpp(99): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
   AppClassGUI.cpp
   AppClassMain.cpp
+  ControllerConfiguration.cpp
   Main.cpp
+  MyRigidBody.cpp
   Generating Code...
-  Frogger.vcxproj -> C:\Users\Patrick\source\repos\Frogger\Z_DELETE\Frogger_d.exe
+  Frogger.vcxproj -> C:\Users\Sisai\Source\Repos\Frogger\Z_DELETE\Frogger_d.exe
   Copying Shaders...
-  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Basic-Instanced.vs
-  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Basic.fs
-  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Basic.vs
-  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\BasicColor.fs
-  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\BasicColor.vs
-  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Line.fs
-  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Line.vs
-  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Minimal.fs
-  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Minimal.vs
-  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\MinimalRed.fs
-  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Simplex.fs
-  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Simplex.vs
-  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Skybox.fs
-  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Skybox.vs
-  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Text.fs
-  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Text.vs
-  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Wireframe.fs
+  C:\Users\Sisai\Source\Repos\Frogger\include\Simplex\Shaders\Basic-Instanced.vs
+  C:\Users\Sisai\Source\Repos\Frogger\include\Simplex\Shaders\Basic.fs
+  C:\Users\Sisai\Source\Repos\Frogger\include\Simplex\Shaders\Basic.vs
+  C:\Users\Sisai\Source\Repos\Frogger\include\Simplex\Shaders\BasicColor.fs
+  C:\Users\Sisai\Source\Repos\Frogger\include\Simplex\Shaders\BasicColor.vs
+  C:\Users\Sisai\Source\Repos\Frogger\include\Simplex\Shaders\Line.fs
+  C:\Users\Sisai\Source\Repos\Frogger\include\Simplex\Shaders\Line.vs
+  C:\Users\Sisai\Source\Repos\Frogger\include\Simplex\Shaders\Minimal.fs
+  C:\Users\Sisai\Source\Repos\Frogger\include\Simplex\Shaders\Minimal.vs
+  C:\Users\Sisai\Source\Repos\Frogger\include\Simplex\Shaders\MinimalRed.fs
+  C:\Users\Sisai\Source\Repos\Frogger\include\Simplex\Shaders\Simplex.fs
+  C:\Users\Sisai\Source\Repos\Frogger\include\Simplex\Shaders\Simplex.vs
+  C:\Users\Sisai\Source\Repos\Frogger\include\Simplex\Shaders\Skybox.fs
+  C:\Users\Sisai\Source\Repos\Frogger\include\Simplex\Shaders\Skybox.vs
+  C:\Users\Sisai\Source\Repos\Frogger\include\Simplex\Shaders\Text.fs
+  C:\Users\Sisai\Source\Repos\Frogger\include\Simplex\Shaders\Text.vs
+  C:\Users\Sisai\Source\Repos\Frogger\include\Simplex\Shaders\Wireframe.fs
   17 File(s) copied
