@@ -29,16 +29,27 @@ void Application::InitVariables(void)
 
 	//set up cars
 	m_pCarList = std::vector<Car*>();
-	for (uint i = 0; i < 6; i++)
+	for (uint i = 0; i < 12; i++)
 	{
-		Car* thisCar = new Car(
-			vector3(17.0f, -6.5f + 3 * i, 0.0f),
-			"Minecraft\\Steve.obj",
-			-0.1f);
+		if (i % 2 == 0) {
+			Car* thisCar = new Car(
+				vector3(17.0f, -6.5f + 2 * i, 0.0f),
+				"Minecraft\\Steve.obj",
+				-0.1f);
+			m_pCarList.push_back(thisCar);
+		}
+		else {
+			Car* thisCar = new Car(
+				vector3(-6.0f, -6.5f + 2 * i, 0.0f),
+				"Minecraft\\Steve.obj",
+				-0.1f);
+			m_pCarList.push_back(thisCar);
+		}
+		
 
 		
 
-		m_pCarList.push_back(thisCar);
+		
 	}
 
 	//White color for grid
@@ -57,7 +68,7 @@ void Application::InitVariables(void)
 
 	//generate checkerboard
 	bool isWhite = true;
-	for (int i = -10; i < 12; i++)
+	for (int i = -10; i < 24; i++)
 	{
 		for (int j = -8; j < 17; j++)
 		{

@@ -15,6 +15,7 @@ class Car
 	float m_fRightBound = 0.0f; //right bound of game
 
 	float m_fSpeed = 0.0f; //car's speed, use negatives to adjust direction
+	float m_sDirection;
 
 	matrix4 m_m4ModelMatrix = IDENTITY_M4; //model matrix
 	Model* m_pCarModel = nullptr; //model to use for the car

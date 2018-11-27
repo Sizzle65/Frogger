@@ -6,9 +6,8 @@ Car::Car(vector3 a_v3StartingPos, String a_sModelPath, float a_fSpeed)
 {
 	m_v3StartingPos = a_v3StartingPos;
 	m_v3Position = a_v3StartingPos;
-	m_fSpeed = a_fSpeed;
+	m_fSpeed = (a_fSpeed * (rand()%2 + 1));
 	m_sModelPath = a_sModelPath;
-
 	Init();
 }
 
@@ -26,6 +25,12 @@ void Simplex::Car::Init()
 	m_pMeshMngr = MeshManager::GetInstance();
 	m_fLeftBound = -8.0f;
 	m_fRightBound = 17.0f;
+	if (m_v3StartingPos.x == m_fRightBound) {
+		m_sDirection = 1.0f;
+	}
+	else {
+		m_sDirection = -1.0f;
+	}
 }
 
 void Simplex::Car::Release()
@@ -43,10 +48,15 @@ bool Simplex::Car::IsOutOfBounds()
 	//check against right bound
 	if (m_v3Position.x > m_fRightBound)
 		return true;
+	//else if (m_v3Position.x > m_fRightBound + 4.0f && m_sDirection)
+	//	return true;
 
 	//check against left bound
 	if (m_v3Position.x < m_fLeftBound)
 		return true;
+	else if (m_v3Position.x < m_fLeftBound + 2.0f && m_sDirection == 1.0f)
+		return true;
+
 
 	return false;
 }
@@ -67,7 +77,7 @@ void Simplex::Car::SetModelMatrix(matrix4 a_m4ModelMatrix)
 void Simplex::Car::Update()
 {
 	//move car along
-	m_v3Position.x += m_fSpeed;
+	m_v3Position.x += (m_sDirection * m_fSpeed);
 
 	//reset position if out of bounds
 	if (IsOutOfBounds())
