@@ -10,6 +10,7 @@ void Application::InitVariables(void)
 		vector3(0.0f, 3.0f, 8.0f), //Position
 		vector3(0.0f, 3.0f, 7.0f),	//Target
 		AXIS_Y);					//Up
+	m_pCameraMngr->SetCameraMode(CAM_ORTHO_Z);
 
 	m_pLightMngr->SetPosition(vector3(0.0f, 3.0f, 13.0f), 1); //set the position of first light(0 is reserved for global light)
 
@@ -17,11 +18,50 @@ void Application::InitVariables(void)
 	m_pCreeper = new Model();
 	m_pCreeper->Load("Minecraft\\Creeper.obj");
 	m_pCreeperRB = new MyRigidBody(m_pCreeper->GetVertexList());
+	m_v3Creeper.y = -10;
 
 	//steve
 	m_pSteve = new Model();
 	m_pSteve->Load("Minecraft\\Steve.obj");
 	m_pSteveRB = new MyRigidBody(m_pSteve->GetVertexList());
+
+	//White color for grid
+	std::vector<vector3> white;
+	for (size_t i = 0; i < 6; i++)
+	{
+		white.push_back(C_WHITE);
+	}
+
+	//black color for grid
+	std::vector<vector3> black;
+	for (size_t i = 0; i < 6; i++)
+	{
+		black.push_back(C_BLACK);
+	}
+
+	//generate checkerboard
+	bool isWhite = true;
+	for (int i = -10; i < 9; i++)
+	{
+		for (int j = -10; j < 9; j++)
+		{
+			Mesh* mesh = new Mesh();
+			if (isWhite)
+			{
+				mesh->SetColorList(white);
+				mesh->AddQuad(vector3(j, i, 0), vector3(j + 1, i, 0), vector3(j, i + 1, 0), vector3(j + 1, i + 1, 0));
+			}
+			else
+			{
+				mesh->SetColorList(black);
+				mesh->AddQuad(vector3(j, i, 0), vector3(j + 1, i, 0), vector3(j, i + 1, 0), vector3(j + 1, i + 1, 0));
+			}
+			isWhite = !isWhite;
+			mesh->CompileOpenGL3X();
+			tiles.push_back(mesh);
+		}
+	}
+
 }
 void Application::Update(void)
 {
@@ -41,7 +81,7 @@ void Application::Update(void)
 	m_pMeshMngr->AddAxisToRenderList(mCreeper);
 
 	//Set model matrix to Steve
-	matrix4 mSteve = glm::translate(vector3(2.25f, 0.0f, 0.0f)) * glm::rotate(IDENTITY_M4, glm::radians(-55.0f), AXIS_Z);
+	matrix4 mSteve = glm::translate(vector3(2.25f, 0.0f, 0.0f));
 	m_pSteve->SetModelMatrix(mSteve);
 	m_pSteveRB->SetModelMatrix(mSteve);
 	m_pMeshMngr->AddAxisToRenderList(mSteve);
@@ -67,10 +107,15 @@ void Application::Display(void)
 	ClearScreen();
 	
 	// draw a skybox
-	m_pMeshMngr->AddSkyboxToRenderList();
+	//m_pMeshMngr->AddSkyboxToRenderList();
 	
 	//render list call
 	m_uRenderCallCount = m_pMeshMngr->Render();
+
+	for (size_t i = 0; i < tiles.size(); i++)
+	{
+		tiles[i]->Render(m_pCameraMngr->GetProjectionMatrix(), m_pCameraMngr->GetViewMatrix(), ToMatrix4(m_qArcBall));
+	}
 
 	//clear the render list
 	m_pMeshMngr->ClearRenderList();
@@ -96,6 +141,8 @@ void Application::Release(void)
 
 	//release the rigid body for the model
 	SafeDelete(m_pSteveRB);
+
+	tiles.clear();
 
 	//release GUI
 	ShutdownGUI();

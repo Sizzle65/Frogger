@@ -214,7 +214,7 @@ public:
 	- int a_nIndex = -1 -> Index of the camera, -1 will use the active camera's index
 	OUTPUT: ---
 	*/
-	void SetCameraMode(BTO_CAMERAMODE a_nMode = BTO_CAMERAMODE::CAM_PERSP, int a_nIndex = -1);
+	void SetCameraMode(BTO_CAMERAMODE a_nMode = BTO_CAMERAMODE::CAM_ORTHO_X, int a_nIndex = -1);
 	/*
 	USAGE: Returns the current value for the camera mode of the camera specified by index, if -1 it will 
 	- use the active camera
