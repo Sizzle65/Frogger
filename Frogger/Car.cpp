@@ -24,9 +24,8 @@ void Simplex::Car::Init()
 	m_pRigidBody = new MyRigidBody(m_pCarModel->GetVertexList());
 
 	m_pMeshMngr = MeshManager::GetInstance();
-
-	m_fLeftBound = -10.0f;
-	m_fRightBound = 10.0f;
+	m_fLeftBound = -8.0f;
+	m_fRightBound = 17.0f;
 }
 
 void Simplex::Car::Release()
@@ -76,7 +75,9 @@ void Simplex::Car::Update()
 
 	//set up to render car
 	matrix4 mCar = glm::translate(m_v3Position);
-	SetModelMatrix(mCar);
+	matrix4 carRot = glm::rotate(IDENTITY_M4, glm::radians(90.0f), AXIS_Z);
+
+	SetModelMatrix(mCar * carRot);
 	m_pMeshMngr->AddAxisToRenderList(mCar);
 
 	m_pCarModel->AddToRenderList();

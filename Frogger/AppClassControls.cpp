@@ -81,22 +81,22 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 	case sf::Keyboard::Left:
 		m_v3Creeper.x -= m_fGridSnap;
 
-		m_v3Creeper.x = (int)m_v3Creeper.x;
+		//m_v3Creeper.x = (int)m_v3Creeper.x;
 		break;
 	case sf::Keyboard::Right:
 		m_v3Creeper.x += m_fGridSnap;
 
-		m_v3Creeper.x = (int)m_v3Creeper.x;
+		//m_v3Creeper.x = (int)m_v3Creeper.x;
 		break;
 	case sf::Keyboard::Up:
 		m_v3Creeper.y += m_fGridSnap;
 
-		m_v3Creeper.y = (int)m_v3Creeper.y;
+		//m_v3Creeper.y = (int)m_v3Creeper.y;
 		break;
 	case sf::Keyboard::Down:
 		m_v3Creeper.y -= m_fGridSnap;
 
-		m_v3Creeper.y = (int)m_v3Creeper.y;
+		//m_v3Creeper.y = (int)m_v3Creeper.y;
 		break;
 	}
 	

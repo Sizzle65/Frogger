@@ -27,14 +27,14 @@ class Application
 
 	quaternion m_qCreeper; //quaternion for the creeper
 
-	vector3 m_v3PlrStart = vector3(0.0f, -10.0f, 0.0f); //starting position for the player
+	vector3 m_v3PlrStart = vector3(4.5f, -9.5, 0.0f); //starting position for the player
 
 	MyRigidBody* m_pCreeperRB = nullptr; //Rigid Body of the model
 	MyRigidBody* m_pSteveRB = nullptr; //Rigid Body of the model
 
 	std::vector<Car*> m_pCarList; //List of rigidbodies containing cars
 
-	String m_sProgrammer = "Alberto Bobadilla - labigm@rit.edu"; //programmer
+	String m_sProgrammer = "Team Frogger - ExampleEmail@rit.edu"; //programmer
 
 	float m_fGridSnap = 1.0f; //distance between snap points for movement
 private:

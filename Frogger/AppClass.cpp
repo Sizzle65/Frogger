@@ -29,12 +29,14 @@ void Application::InitVariables(void)
 
 	//set up cars
 	m_pCarList = std::vector<Car*>();
-	for (uint i = 0; i < 3; i++)
+	for (uint i = 0; i < 6; i++)
 	{
-		Car *thisCar = new Car(
-			vector3(10.0f, -7.0f + 3 * i, 0.0f),
+		Car* thisCar = new Car(
+			vector3(17.0f, -6.5f + 3 * i, 0.0f),
 			"Minecraft\\Steve.obj",
 			-0.1f);
+
+		
 
 		m_pCarList.push_back(thisCar);
 	}
@@ -55,9 +57,9 @@ void Application::InitVariables(void)
 
 	//generate checkerboard
 	bool isWhite = true;
-	for (int i = -10; i < 9; i++)
+	for (int i = -10; i < 12; i++)
 	{
-		for (int j = -10; j < 9; j++)
+		for (int j = -8; j < 17; j++)
 		{
 			Mesh* mesh = new Mesh();
 			if (isWhite)
@@ -89,7 +91,9 @@ void Application::Update(void)
 	CameraRotation();
 
 	//Set model matrix to the creeper
-	matrix4 mCreeper = glm::translate(m_v3Creeper) * ToMatrix4(m_qCreeper) * ToMatrix4(m_qArcBall);
+	matrix4 creeperRotation = glm::rotate(IDENTITY_M4,glm::radians(90.0f),AXIS_X);
+	matrix4 mCreeper = glm::translate(m_v3Creeper) * creeperRotation * ToMatrix4(m_qCreeper) * ToMatrix4(m_qArcBall);
+	
 	m_pCreeper->SetModelMatrix(mCreeper);
 	m_pCreeperRB->SetModelMatrix(mCreeper);
 	m_pMeshMngr->AddAxisToRenderList(mCreeper);
@@ -105,8 +109,10 @@ void Application::Update(void)
 	for (int i = 0; i < m_pCarList.size(); i++)
 	{
 		m_pCarList[i]->Update();
-
 		bColliding = m_pCreeperRB->IsColliding(m_pCarList[i]->GetRigidBody());
+		if (bColliding) {
+			break;
+		}
 	}
 
 	//bool bColliding = m_pCreeperRB->IsColliding(m_pSteveRB);
