@@ -12,6 +12,8 @@ Date: 2017/06
 
 #include "MyRigidBody.h"
 
+#include "Car.h"
+
 namespace Simplex
 {
 	//Adding Application to the Simplex namespace
@@ -23,13 +25,14 @@ class Application
 
 	std::vector<Mesh*> tiles;
 
-
 	quaternion m_qCreeper; //quaternion for the creeper
+
+	vector3 m_v3PlrStart = vector3(0.0f, -10.0f, 0.0f); //starting position for the player
 
 	MyRigidBody* m_pCreeperRB = nullptr; //Rigid Body of the model
 	MyRigidBody* m_pSteveRB = nullptr; //Rigid Body of the model
 
-
+	std::vector<Car*> m_pCarList; //List of rigidbodies containing cars
 
 	String m_sProgrammer = "Alberto Bobadilla - labigm@rit.edu"; //programmer
 

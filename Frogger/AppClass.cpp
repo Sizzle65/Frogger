@@ -18,12 +18,26 @@ void Application::InitVariables(void)
 	m_pCreeper = new Model();
 	m_pCreeper->Load("Minecraft\\Creeper.obj");
 	m_pCreeperRB = new MyRigidBody(m_pCreeper->GetVertexList());
-	m_v3Creeper.y = -10;
+	m_v3Creeper.x = m_v3PlrStart.x;
+	m_v3Creeper.y = m_v3PlrStart.y;
+	m_v3Creeper.z = m_v3PlrStart.z;
 
 	//steve
-	m_pSteve = new Model();
-	m_pSteve->Load("Minecraft\\Steve.obj");
-	m_pSteveRB = new MyRigidBody(m_pSteve->GetVertexList());
+	//m_pSteve = new Model();
+	//m_pSteve->Load("Minecraft\\Steve.obj");
+	//m_pSteveRB = new MyRigidBody(m_pSteve->GetVertexList());
+
+	//set up cars
+	m_pCarList = std::vector<Car*>();
+	for (uint i = 0; i < 3; i++)
+	{
+		Car *thisCar = new Car(
+			vector3(10.0f, -7.0f + 3 * i, 0.0f),
+			"Minecraft\\Steve.obj",
+			-0.1f);
+
+		m_pCarList.push_back(thisCar);
+	}
 
 	//White color for grid
 	std::vector<vector3> white;
@@ -81,23 +95,37 @@ void Application::Update(void)
 	m_pMeshMngr->AddAxisToRenderList(mCreeper);
 
 	//Set model matrix to Steve
-	matrix4 mSteve = glm::translate(vector3(2.25f, 0.0f, 0.0f));
+	/*matrix4 mSteve = glm::translate(vector3(2.25f, 0.0f, 0.0f));
 	m_pSteve->SetModelMatrix(mSteve);
 	m_pSteveRB->SetModelMatrix(mSteve);
-	m_pMeshMngr->AddAxisToRenderList(mSteve);
+	m_pMeshMngr->AddAxisToRenderList(mSteve);*/
 
-	bool bColliding = m_pCreeperRB->IsColliding(m_pSteveRB);
+	bool bColliding = false;
+
+	for (int i = 0; i < m_pCarList.size(); i++)
+	{
+		m_pCarList[i]->Update();
+
+		bColliding = m_pCreeperRB->IsColliding(m_pCarList[i]->GetRigidBody());
+	}
+
+	//bool bColliding = m_pCreeperRB->IsColliding(m_pSteveRB);
 
 	m_pCreeper->AddToRenderList();
 	m_pCreeperRB->AddToRenderList();
 
-	m_pSteve->AddToRenderList();
-	m_pSteveRB->AddToRenderList();
+	/*m_pSteve->AddToRenderList();
+	m_pSteveRB->AddToRenderList();*/
 	//m_pSteveRB->AddToRenderList(m_pCreeperRB);
 
 	m_pMeshMngr->Print("Colliding: ");
 	if (bColliding)
+	{
 		m_pMeshMngr->PrintLine("YES!", C_RED);
+
+		//NOT FUNCTIONING
+		m_v3Creeper = m_v3PlrStart;
+	}
 	else
 		m_pMeshMngr->PrintLine("no", C_YELLOW);
 }
