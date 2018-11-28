@@ -122,6 +122,7 @@ void Application::Update(void)
 		m_pCarList[i]->Update();
 		bColliding = m_pCreeperRB->IsColliding(m_pCarList[i]->GetRigidBody());
 		if (bColliding) {
+			m_iDeaths++;
 			break;
 		}
 	}

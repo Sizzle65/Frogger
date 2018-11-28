@@ -37,6 +37,7 @@ class Application
 	String m_sProgrammer = "Team Frogger - ExampleEmail@rit.edu"; //programmer
 
 	float m_fGridSnap = 1.0f; //distance between snap points for movement
+	int m_iDeaths = 0;
 private:
 	static ImGuiObject gui; //GUI object
 	bool m_bGUI_Main = true; //show Main GUI window?
