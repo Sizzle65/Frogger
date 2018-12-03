@@ -6,7 +6,8 @@ Car::Car(vector3 a_v3StartingPos, String a_sModelPath, float a_fSpeed)
 {
 	m_v3StartingPos = a_v3StartingPos;
 	m_v3Position = a_v3StartingPos;
-	m_fSpeed = (a_fSpeed * (rand()%2 + 1));
+	m_fDefaultSpeed = a_fSpeed;
+	m_fSpeed = (m_fDefaultSpeed * (rand()%50 + m_fSpeedMin));
 	m_sModelPath = a_sModelPath;
 	Init();
 }
@@ -64,6 +65,9 @@ bool Simplex::Car::IsOutOfBounds()
 void Simplex::Car::ResetPosition()
 {
 	m_v3Position = m_v3StartingPos;
+	// Resets the speed to add variation
+	m_fSpeed = (m_fDefaultSpeed * (rand() % 50 + m_fSpeedMin));
+
 }
 
 void Simplex::Car::SetModelMatrix(matrix4 a_m4ModelMatrix)

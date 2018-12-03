@@ -79,24 +79,37 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 		m_bModifier = true;
 		break;
 	case sf::Keyboard::Left:
-		m_v3Creeper.x -= m_fGridSnap;
+		// Checks location against board bounds
+		if((m_v3Creeper.x - m_fGridSnap) > lowerBoundX)
+			m_v3Creeper.x -= m_fGridSnap;
 
-		//m_v3Creeper.x = (int)m_v3Creeper.x;
 		break;
 	case sf::Keyboard::Right:
-		m_v3Creeper.x += m_fGridSnap;
+		if ((m_v3Creeper.x + m_fGridSnap) < UpperBoundX)
+			m_v3Creeper.x += m_fGridSnap;
 
-		//m_v3Creeper.x = (int)m_v3Creeper.x;
 		break;
 	case sf::Keyboard::Up:
-		m_v3Creeper.y += m_fGridSnap;
-
-		//m_v3Creeper.y = (int)m_v3Creeper.y;
+		if ((m_v3Creeper.y + m_fGridSnap) < UpperBoundY) {
+			m_v3Creeper.y += m_fGridSnap;
+			
+			// If above a threshold, moves the camera with the player
+			if (m_v3Creeper.y >= 0)
+				m_pCameraMngr->MoveVertical(m_fGridSnap);
+		}
+		
+		
 		break;
 	case sf::Keyboard::Down:
-		m_v3Creeper.y -= m_fGridSnap;
+		if ((m_v3Creeper.y - m_fGridSnap) > lowerBoundY) {
+			m_v3Creeper.y -= m_fGridSnap;
+			
+			// If above a threshold, moves the camera with the player
+			if(m_v3Creeper.y >= -1)
+				m_pCameraMngr->MoveVertical(-m_fGridSnap);
+		}
+		
 
-		//m_v3Creeper.y = (int)m_v3Creeper.y;
 		break;
 	}
 	

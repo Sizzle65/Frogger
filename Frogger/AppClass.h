@@ -38,6 +38,11 @@ class Application
 
 	float m_fGridSnap = 1.0f; //distance between snap points for movement
 	int m_iDeaths = 0;
+	float lowerBoundX = -8.0f;
+	float lowerBoundY = -10.0f;
+	float UpperBoundX = 17.0f;
+	float UpperBoundY = 400.0f;
+
 private:
 	static ImGuiObject gui; //GUI object
 	bool m_bGUI_Main = true; //show Main GUI window?

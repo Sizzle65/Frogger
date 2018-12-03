@@ -15,6 +15,8 @@ class Car
 	float m_fRightBound = 0.0f; //right bound of game
 
 	float m_fSpeed = 0.0f; //car's speed, use negatives to adjust direction
+	float m_fDefaultSpeed = 0.0f; // Saves the default speed for speed recalculations
+	float m_fSpeedMin = 10.0f; // Minimum speed cars can move
 	float m_sDirection;
 
 	matrix4 m_m4ModelMatrix = IDENTITY_M4; //model matrix
