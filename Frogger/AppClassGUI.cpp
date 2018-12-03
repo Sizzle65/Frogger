@@ -12,8 +12,11 @@ void Application::DrawGUI(void)
 	m_pMeshMngr->PrintLine(m_pSystem->GetAppName(), C_YELLOW);
 
 	//m_pMeshMngr->Print("						");
-	m_pMeshMngr->Print("FPS:");
+	m_pMeshMngr->Print("FPS: ");
 	m_pMeshMngr->PrintLine(std::to_string(m_pSystem->GetFPS()), C_RED);
+	m_pMeshMngr->Print("Deaths: ");
+	m_pMeshMngr->PrintLine(std::to_string(m_iDeaths), C_RED);
+
 #pragma endregion
 
 	//Calculate the window size to know how to draw

@@ -29,20 +29,20 @@ void Application::InitVariables(void)
 
 	//set up cars
 	m_pCarList = std::vector<Car*>();
-	for (uint i = 0; i < 12; i++)
+	for (uint i = 0; i < 200; i++)
 	{
 		if (i % 2 == 0) {
 			Car* thisCar = new Car(
 				vector3(17.0f, -6.5f + 2 * i, 0.0f),
 				"Minecraft\\Steve.obj",
-				-0.1f);
+				-0.01f);
 			m_pCarList.push_back(thisCar);
 		}
 		else {
 			Car* thisCar = new Car(
 				vector3(-6.0f, -6.5f + 2 * i, 0.0f),
 				"Minecraft\\Steve.obj",
-				-0.1f);
+				-0.01f);
 			m_pCarList.push_back(thisCar);
 		}
 		
@@ -56,7 +56,7 @@ void Application::InitVariables(void)
 	std::vector<vector3> white;
 	for (size_t i = 0; i < 6; i++)
 	{
-		white.push_back(C_WHITE);
+		white.push_back(C_GRAY);
 	}
 
 	//black color for grid
@@ -65,10 +65,10 @@ void Application::InitVariables(void)
 	{
 		black.push_back(C_BLACK);
 	}
-
+	/*
 	//generate checkerboard
 	bool isWhite = true;
-	for (int i = -10; i < 24; i++)
+	for (int i = -10; i < 65; i++)
 	{
 		for (int j = -8; j < 17; j++)
 		{
@@ -87,8 +87,14 @@ void Application::InitVariables(void)
 			mesh->CompileOpenGL3X();
 			tiles.push_back(mesh);
 		}
-	}
+	}*/
 
+	// Adds a single quad instead of a checkerboard
+	Mesh* mesh = new Mesh();
+	mesh->SetColorList(black);
+	mesh->AddQuad(vector3(-8, -10, 0), vector3(17, -10, 0), vector3(-8, 400, 0), vector3(17, 400, 0));
+	mesh->CompileOpenGL3X();
+	tiles.push_back(mesh);
 }
 void Application::Update(void)
 {
@@ -122,6 +128,7 @@ void Application::Update(void)
 		m_pCarList[i]->Update();
 		bColliding = m_pCreeperRB->IsColliding(m_pCarList[i]->GetRigidBody());
 		if (bColliding) {
+			m_iDeaths++;
 			break;
 		}
 	}
