@@ -3,7 +3,7 @@ using namespace Simplex;
 void Application::InitVariables(void)
 {
 	//Change this to your name and email
-	m_sProgrammer = "Frogger - placeholder@rit.edu";
+	m_sProgrammer = "Frogger - Team Frogger";
 
 	//Set the position and target of the camera
 	m_pCameraMngr->SetPositionTargetAndUpward(
@@ -13,6 +13,7 @@ void Application::InitVariables(void)
 	m_pCameraMngr->SetCameraMode(CAM_ORTHO_Z);
 
 	m_pLightMngr->SetPosition(vector3(0.0f, 3.0f, 13.0f), 1); //set the position of first light(0 is reserved for global light)
+
 
 	//creeper
 	m_pCreeper = new Model();
@@ -93,7 +94,7 @@ void Application::InitVariables(void)
 
 	// Adds a single quad instead of a checkerboard
 	Mesh* mesh = new Mesh();
-	mesh->SetColorList(black);
+	mesh->SetColorList(white);
 	mesh->AddQuad(vector3(-8, -10, 0), vector3(17, -10, 0), vector3(-8, 400, 0), vector3(17, 400, 0));
 	mesh->CompileOpenGL3X();
 	tiles.push_back(mesh);

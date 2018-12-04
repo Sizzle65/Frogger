@@ -119,7 +119,7 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 		
 
 		break;
-	case sf::Keyboard::O:
+	case sf::Keyboard::T:
 		m_bSpatial = !m_bSpatial;
 		break;
 	}
