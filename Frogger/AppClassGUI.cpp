@@ -49,6 +49,12 @@ void Application::DrawGUI(void)
 			ImGui::Text(" Shift: Modify Up/Down\n");
 			ImGui::Separator();
 			ImGui::TextColored(ImColor(255, 255, 0), "SAT is checked.\n");
+			if(m_bSpatial)
+				ImGui::TextColored(ImColor(255, 255, 0), "Spatial Optomization is on.\n");
+			else
+				ImGui::TextColored(ImColor(255, 0, 0), "Spatial Optomization is off.\n");
+
+
 		}
 		ImGui::End();
 	}

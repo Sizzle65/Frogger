@@ -96,8 +96,10 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 			m_iCreeperRow++;
 
 			// If above a threshold, moves the camera with the player
-			if (m_v3Creeper.y >= 0)
+			if (m_v3Creeper.y >= 0) {
 				m_pCameraMngr->MoveVertical(m_fGridSnap);
+				m_fCameraReset += m_fGridSnap;
+			}
 		}
 		
 		
@@ -109,8 +111,10 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 			m_iCreeperRow--;
 
 			// If above a threshold, moves the camera with the player
-			if(m_v3Creeper.y >= -1)
+			if (m_v3Creeper.y >= -1) {
 				m_pCameraMngr->MoveVertical(-m_fGridSnap);
+				m_fCameraReset -= m_fGridSnap;
+			}
 		}
 		
 

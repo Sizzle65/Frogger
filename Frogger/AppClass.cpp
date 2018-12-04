@@ -136,6 +136,7 @@ void Application::Update(void)
 				bColliding = m_pCreeperRB->IsColliding(m_pCarList[i]->GetRigidBody());
 				m_pCreeperRB->RemoveCollisionWith(m_pCarList[i]->GetRigidBody());
 				m_pCarList[i]->GetRigidBody()->RemoveCollisionWith(m_pCreeperRB);
+
 			}
 
 		}
@@ -161,10 +162,12 @@ void Application::Update(void)
 	{
 		m_pMeshMngr->PrintLine("YES!", C_RED);
 
-		//NOT FUNCTIONING
 		m_v3Creeper = m_v3PlrStart;
+		m_pCameraMngr->MoveVertical(-m_fCameraReset);
+		m_fCameraReset = 0.0f;
 		m_iCreeperRow = 0;
 		bColliding = false;
+
 	}
 	else
 		m_pMeshMngr->PrintLine("no", C_YELLOW);
