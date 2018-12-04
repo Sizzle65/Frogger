@@ -115,6 +115,9 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 		
 
 		break;
+	case sf::Keyboard::O:
+		m_bSpatial = !m_bSpatial;
+		break;
 	}
 	
 	//gui
