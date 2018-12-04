@@ -93,7 +93,7 @@ void Simplex::Car::Update()
 	matrix4 carRot = glm::rotate(IDENTITY_M4, glm::radians(90.0f), AXIS_Z);
 
 	SetModelMatrix(mCar * carRot);
-	m_pMeshMngr->AddAxisToRenderList(mCar);
+	//m_pMeshMngr->AddAxisToRenderList(mCar);
 
 	m_pCarModel->AddToRenderList();
 	m_pRigidBody->AddToRenderList();

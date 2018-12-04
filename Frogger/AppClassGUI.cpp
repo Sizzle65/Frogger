@@ -5,7 +5,7 @@ void Application::DrawGUI(void)
 {
 #pragma region Debugging Information
 	//Print info on the screen
-	uint nEmptyLines = 19;
+	uint nEmptyLines = 18;
 	for (uint i = 0; i < nEmptyLines; ++i)
 		m_pMeshMngr->PrintLine("");//Add a line on top
 								   //m_pMeshMngr->Print("						");
@@ -16,6 +16,8 @@ void Application::DrawGUI(void)
 	m_pMeshMngr->PrintLine(std::to_string(m_pSystem->GetFPS()), C_RED);
 	m_pMeshMngr->Print("Deaths: ");
 	m_pMeshMngr->PrintLine(std::to_string(m_iDeaths), C_RED);
+	m_pMeshMngr->Print("High Score: ");
+	m_pMeshMngr->PrintLine(std::to_string(m_iHighScore), C_RED);
 
 #pragma endregion
 

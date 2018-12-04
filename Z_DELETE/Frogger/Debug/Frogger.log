@@ -1,21 +1,21 @@
-﻿  AppClassControls.cpp
-  Frogger.vcxproj -> Z:\IGMProfile\Documents\GitHub\Frogger\Z_DELETE\Frogger_d.exe
+﻿  AppClassGUI.cpp
+  Frogger.vcxproj -> Z:\IGMProfile\Documents\Frogger\Frogger\Z_DELETE\Frogger_d.exe
   Copying Shaders...
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Basic-Instanced.vs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Basic.fs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Basic.vs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\BasicColor.fs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\BasicColor.vs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Line.fs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Line.vs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Minimal.fs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Minimal.vs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\MinimalRed.fs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Simplex.fs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Simplex.vs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Skybox.fs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Skybox.vs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Text.fs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Text.vs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Wireframe.fs
+  Z:\IGMProfile\Documents\Frogger\Frogger\include\Simplex\Shaders\Basic-Instanced.vs
+  Z:\IGMProfile\Documents\Frogger\Frogger\include\Simplex\Shaders\Basic.fs
+  Z:\IGMProfile\Documents\Frogger\Frogger\include\Simplex\Shaders\Basic.vs
+  Z:\IGMProfile\Documents\Frogger\Frogger\include\Simplex\Shaders\BasicColor.fs
+  Z:\IGMProfile\Documents\Frogger\Frogger\include\Simplex\Shaders\BasicColor.vs
+  Z:\IGMProfile\Documents\Frogger\Frogger\include\Simplex\Shaders\Line.fs
+  Z:\IGMProfile\Documents\Frogger\Frogger\include\Simplex\Shaders\Line.vs
+  Z:\IGMProfile\Documents\Frogger\Frogger\include\Simplex\Shaders\Minimal.fs
+  Z:\IGMProfile\Documents\Frogger\Frogger\include\Simplex\Shaders\Minimal.vs
+  Z:\IGMProfile\Documents\Frogger\Frogger\include\Simplex\Shaders\MinimalRed.fs
+  Z:\IGMProfile\Documents\Frogger\Frogger\include\Simplex\Shaders\Simplex.fs
+  Z:\IGMProfile\Documents\Frogger\Frogger\include\Simplex\Shaders\Simplex.vs
+  Z:\IGMProfile\Documents\Frogger\Frogger\include\Simplex\Shaders\Skybox.fs
+  Z:\IGMProfile\Documents\Frogger\Frogger\include\Simplex\Shaders\Skybox.vs
+  Z:\IGMProfile\Documents\Frogger\Frogger\include\Simplex\Shaders\Text.fs
+  Z:\IGMProfile\Documents\Frogger\Frogger\include\Simplex\Shaders\Text.vs
+  Z:\IGMProfile\Documents\Frogger\Frogger\include\Simplex\Shaders\Wireframe.fs
   17 File(s) copied

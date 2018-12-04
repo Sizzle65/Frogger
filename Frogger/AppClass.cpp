@@ -30,7 +30,7 @@ void Application::InitVariables(void)
 
 	//set up cars
 	m_pCarList = std::vector<Car*>();
-	for (uint i = 0; i < 200; i++)
+	for (uint i = 0; i < 2000; i++)
 	{
 		if (i % 2 == 0) {
 			Car* thisCar = new Car(
@@ -95,7 +95,7 @@ void Application::InitVariables(void)
 	// Adds a single quad instead of a checkerboard
 	Mesh* mesh = new Mesh();
 	mesh->SetColorList(white);
-	mesh->AddQuad(vector3(-8, -10, 0), vector3(17, -10, 0), vector3(-8, 400, 0), vector3(17, 400, 0));
+	mesh->AddQuad(vector3(lowerBoundX, lowerBoundY, 0), vector3(UpperBoundX, lowerBoundY, 0), vector3(lowerBoundX, UpperBoundY, 0), vector3(UpperBoundX, UpperBoundY, 0));
 	mesh->CompileOpenGL3X();
 	tiles.push_back(mesh);
 }
@@ -116,7 +116,7 @@ void Application::Update(void)
 	
 	m_pCreeper->SetModelMatrix(mCreeper);
 	m_pCreeperRB->SetModelMatrix(mCreeper);
-	m_pMeshMngr->AddAxisToRenderList(mCreeper);
+	//m_pMeshMngr->AddAxisToRenderList(mCreeper);
 
 	//Set model matrix to Steve
 	/*matrix4 mSteve = glm::translate(vector3(2.25f, 0.0f, 0.0f));
