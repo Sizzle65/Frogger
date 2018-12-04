@@ -1,4 +1,5 @@
-﻿  AppClassControls.cpp
+﻿  AppClass.cpp
+z:\igmprofile\documents\github\frogger\frogger\appclass.cpp(129): warning C4018: '<': signed/unsigned mismatch
   Frogger.vcxproj -> Z:\IGMProfile\Documents\GitHub\Frogger\Z_DELETE\Frogger_d.exe
   Copying Shaders...
   Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Basic-Instanced.vs

@@ -116,7 +116,7 @@ void Application::Update(void)
 	
 	m_pCreeper->SetModelMatrix(mCreeper);
 	m_pCreeperRB->SetModelMatrix(mCreeper);
-	m_pMeshMngr->AddAxisToRenderList(mCreeper);
+	//m_pMeshMngr->AddAxisToRenderList(mCreeper);
 
 	//Set model matrix to Steve
 	/*matrix4 mSteve = glm::translate(vector3(2.25f, 0.0f, 0.0f));
