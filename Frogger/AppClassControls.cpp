@@ -454,7 +454,7 @@ void Application::ProcessKeyboard(void)
 	if (bMultiplier)
 		fMultiplier = 5.0f;
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+	/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		m_pCameraMngr->MoveForward(m_fMovementSpeed * fMultiplier);
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
@@ -470,7 +470,7 @@ void Application::ProcessKeyboard(void)
 		m_pCameraMngr->MoveVertical(-m_fMovementSpeed * fMultiplier);
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
-		m_pCameraMngr->MoveVertical(m_fMovementSpeed * fMultiplier);
+		m_pCameraMngr->MoveVertical(m_fMovementSpeed * fMultiplier);*/
 #pragma endregion
 	////move the creeper
 	//if (!m_bLeftDown && sf::Keyboard::isKeyPressed(sf::Keyboard::Left))

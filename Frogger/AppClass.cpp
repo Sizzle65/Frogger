@@ -105,10 +105,10 @@ void Application::Update(void)
 	m_pSystem->Update();
 
 	//Is the ArcBall active?
-	ArcBall();
+	//ArcBall();
 
 	//Is the first person camera active?
-	CameraRotation();
+	//CameraRotation();
 
 	//Set model matrix to the creeper
 	matrix4 creeperRotation = glm::rotate(IDENTITY_M4,glm::radians(90.0f),AXIS_X);
