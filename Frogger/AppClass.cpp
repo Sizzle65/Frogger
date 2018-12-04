@@ -56,17 +56,17 @@ void Application::InitVariables(void)
 	}
 
 	//White color for grid
-	std::vector<vector3> white;
+	std::vector<vector3> grass;
 	for (size_t i = 0; i < 6; i++)
 	{
-		white.push_back(C_GRAY);
+		grass.push_back(vector3(0.0f,0.7f,0.0f));
 	}
 
 	//black color for grid
-	std::vector<vector3> black;
+	std::vector<vector3> road;
 	for (size_t i = 0; i < 6; i++)
 	{
-		black.push_back(C_BLACK);
+		road.push_back(C_GRAY);
 	}
 	/*
 	//generate checkerboard
@@ -92,12 +92,28 @@ void Application::InitVariables(void)
 		}
 	}*/
 
+	for (int i = 3; i < UpperBoundY; i += 2) {
+		Mesh* mesh = new Mesh();
+		mesh->SetColorList(road);
+		mesh->AddQuad(vector3(lowerBoundX, lowerBoundY + i, 0), vector3(UpperBoundX, lowerBoundY + i, 0), vector3(lowerBoundX, lowerBoundY + 1.0f + i, 0), vector3(UpperBoundX, lowerBoundY + i + 1.0f, 0));
+		mesh->CompileOpenGL3X();
+		tiles.push_back(mesh);
+	}
+
+	for (int i = 4; i < UpperBoundY; i += 2) {
+		Mesh* mesh = new Mesh();
+		mesh->SetColorList(grass);
+		mesh->AddQuad(vector3(lowerBoundX, lowerBoundY + i, 0), vector3(UpperBoundX, lowerBoundY + i, 0), vector3(lowerBoundX, lowerBoundY + 1.0f + i, 0), vector3(UpperBoundX, lowerBoundY + i + 1.0f, 0));
+		mesh->CompileOpenGL3X();
+		tiles.push_back(mesh);
+	}
+	
 	// Adds a single quad instead of a checkerboard
-	Mesh* mesh = new Mesh();
-	mesh->SetColorList(white);
-	mesh->AddQuad(vector3(lowerBoundX, lowerBoundY, 0), vector3(UpperBoundX, lowerBoundY, 0), vector3(lowerBoundX, UpperBoundY, 0), vector3(UpperBoundX, UpperBoundY, 0));
-	mesh->CompileOpenGL3X();
-	tiles.push_back(mesh);
+	Mesh* mesh1 = new Mesh();
+	mesh1->SetColorList(grass);
+	mesh1->AddQuad(vector3(lowerBoundX, lowerBoundY, 0), vector3(UpperBoundX, lowerBoundY, 0), vector3(lowerBoundX, lowerBoundY + 3.0f, 0), vector3(UpperBoundX, lowerBoundY + 3.0f, 0));
+	mesh1->CompileOpenGL3X();
+	tiles.push_back(mesh1);
 }
 void Application::Update(void)
 {

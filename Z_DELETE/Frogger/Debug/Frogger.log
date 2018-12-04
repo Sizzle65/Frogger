@@ -1,34 +1,22 @@
-﻿  imgui.cpp
-  imgui_demo.cpp
-  imgui_draw.cpp
-  AppClass.cpp
-z:\igmprofile\documents\github\frogger\frogger\appclass.cpp(129): warning C4018: '<': signed/unsigned mismatch
-  AppClassControls.cpp
-  AppClassGUI.cpp
-  AppClassMain.cpp
-  Car.cpp
-  ControllerConfiguration.cpp
-  Main.cpp
-  MyRigidBody.cpp
-  Generating Code...
-  LINK : Z:\IGMProfile\Documents\GitHub\Frogger\Z_DELETE\Frogger_d.exe not found or not built by the last incremental link; performing full link
-  Frogger.vcxproj -> Z:\IGMProfile\Documents\GitHub\Frogger\Z_DELETE\Frogger_d.exe
+﻿  AppClass.cpp
+f:\desktop\school_work\year3fall\dsa2\frogger\frogger\appclass.cpp(145): warning C4018: '<': signed/unsigned mismatch
+  Frogger.vcxproj -> F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\Z_DELETE\Frogger_d.exe
   Copying Shaders...
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Basic-Instanced.vs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Basic.fs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Basic.vs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\BasicColor.fs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\BasicColor.vs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Line.fs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Line.vs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Minimal.fs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Minimal.vs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\MinimalRed.fs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Simplex.fs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Simplex.vs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Skybox.fs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Skybox.vs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Text.fs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Text.vs
-  Z:\IGMProfile\Documents\GitHub\Frogger\include\Simplex\Shaders\Wireframe.fs
+  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Basic-Instanced.vs
+  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Basic.fs
+  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Basic.vs
+  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\BasicColor.fs
+  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\BasicColor.vs
+  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Line.fs
+  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Line.vs
+  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Minimal.fs
+  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Minimal.vs
+  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\MinimalRed.fs
+  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Simplex.fs
+  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Simplex.vs
+  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Skybox.fs
+  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Skybox.vs
+  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Text.fs
+  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Text.vs
+  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Wireframe.fs
   17 File(s) copied
