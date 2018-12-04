@@ -92,7 +92,9 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 	case sf::Keyboard::Up:
 		if ((m_v3Creeper.y + m_fGridSnap) < UpperBoundY) {
 			m_v3Creeper.y += m_fGridSnap;
-			
+
+			m_iCreeperRow++;
+
 			// If above a threshold, moves the camera with the player
 			if (m_v3Creeper.y >= 0)
 				m_pCameraMngr->MoveVertical(m_fGridSnap);
@@ -104,6 +106,8 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 		if ((m_v3Creeper.y - m_fGridSnap) > lowerBoundY) {
 			m_v3Creeper.y -= m_fGridSnap;
 			
+			m_iCreeperRow--;
+
 			// If above a threshold, moves the camera with the player
 			if(m_v3Creeper.y >= -1)
 				m_pCameraMngr->MoveVertical(-m_fGridSnap);

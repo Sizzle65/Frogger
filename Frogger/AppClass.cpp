@@ -35,6 +35,7 @@ void Application::InitVariables(void)
 			Car* thisCar = new Car(
 				vector3(17.0f, -6.5f + 2 * i, 0.0f),
 				"Minecraft\\Steve.obj",
+				i*2 + 3,
 				-0.01f);
 			m_pCarList.push_back(thisCar);
 		}
@@ -42,6 +43,7 @@ void Application::InitVariables(void)
 			Car* thisCar = new Car(
 				vector3(-6.0f, -6.5f + 2 * i, 0.0f),
 				"Minecraft\\Steve.obj",
+				i*2 + 3,
 				-0.01f);
 			m_pCarList.push_back(thisCar);
 		}
@@ -126,7 +128,19 @@ void Application::Update(void)
 	for (int i = 0; i < m_pCarList.size(); i++)
 	{
 		m_pCarList[i]->Update();
-		bColliding = m_pCreeperRB->IsColliding(m_pCarList[i]->GetRigidBody());
+		//Spatial optimization
+		if (m_bSpatial)
+		{
+			if (m_iCreeperRow == m_pCarList[i]->GetRow())
+			{
+				bColliding = m_pCreeperRB->IsColliding(m_pCarList[i]->GetRigidBody());
+				m_pCreeperRB->RemoveCollisionWith(m_pCarList[i]->GetRigidBody());
+				m_pCarList[i]->GetRigidBody()->RemoveCollisionWith(m_pCreeperRB);
+			}
+
+		}
+		else
+			bColliding = m_pCreeperRB->IsColliding(m_pCarList[i]->GetRigidBody());
 		if (bColliding) {
 			m_iDeaths++;
 			break;
@@ -149,6 +163,8 @@ void Application::Update(void)
 
 		//NOT FUNCTIONING
 		m_v3Creeper = m_v3PlrStart;
+		m_iCreeperRow = 0;
+		bColliding = false;
 	}
 	else
 		m_pMeshMngr->PrintLine("no", C_YELLOW);

@@ -2,11 +2,12 @@
 
 using namespace Simplex;
 
-Car::Car(vector3 a_v3StartingPos, String a_sModelPath, float a_fSpeed)
+Car::Car(vector3 a_v3StartingPos, String a_sModelPath,int a_row, float a_fSpeed)
 {
 	m_v3StartingPos = a_v3StartingPos;
 	m_v3Position = a_v3StartingPos;
 	m_fDefaultSpeed = a_fSpeed;
+	m_iCarRow = a_row;
 	m_fSpeed = (m_fDefaultSpeed * (rand()%50 + m_fSpeedMin));
 	m_sModelPath = a_sModelPath;
 	Init();

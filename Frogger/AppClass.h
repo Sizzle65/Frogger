@@ -26,11 +26,13 @@ class Application
 	std::vector<Mesh*> tiles;
 
 	quaternion m_qCreeper; //quaternion for the creeper
+	int m_iCreeperRow = 0; //Row the player is currently on
 
 	vector3 m_v3PlrStart = vector3(4.5f, -9.5, 0.0f); //starting position for the player
 
 	MyRigidBody* m_pCreeperRB = nullptr; //Rigid Body of the model
 	MyRigidBody* m_pSteveRB = nullptr; //Rigid Body of the model
+	bool m_bSpatial = true; //whether spatial optimization is on
 
 	std::vector<Car*> m_pCarList; //List of rigidbodies containing cars
 

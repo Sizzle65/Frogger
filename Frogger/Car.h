@@ -18,6 +18,7 @@ class Car
 	float m_fDefaultSpeed = 0.0f; // Saves the default speed for speed recalculations
 	float m_fSpeedMin = 10.0f; // Minimum speed cars can move
 	float m_sDirection;
+	int m_iCarRow = 0; //Row that the car is on
 
 	matrix4 m_m4ModelMatrix = IDENTITY_M4; //model matrix
 	Model* m_pCarModel = nullptr; //model to use for the car
@@ -32,7 +33,7 @@ public:
 	ARGUMENTS: ---
 	OUTPUT: ---
 	*/
-	Car(vector3 a_v3StartingPos, String a_sModelPath, float a_fSpeed = 1.0f);
+	Car(vector3 a_v3StartingPos, String a_sModelPath,int a_row, float a_fSpeed = 1.0f);
 	/*
 	USAGE: destructor
 	ARGUMENTS: ---
@@ -87,6 +88,7 @@ public:
 	OUTPUT: this car's rigid body
 	*/
 	MyRigidBody* GetRigidBody() { return m_pRigidBody; }
+	int GetRow() { return m_iCarRow; }
 private:
 	/*
 	USAGE: copy constructor
