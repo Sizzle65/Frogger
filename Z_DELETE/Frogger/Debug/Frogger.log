@@ -1,22 +1,22 @@
 ﻿  AppClass.cpp
-f:\desktop\school_work\year3fall\dsa2\frogger\frogger\appclass.cpp(128): warning C4018: '<': signed/unsigned mismatch
-  Frogger.vcxproj -> F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\Z_DELETE\Frogger_d.exe
+c:\users\patrick\source\repos\frogger\frogger\appclass.cpp(128): warning C4018: '<': signed/unsigned mismatch
+  Frogger.vcxproj -> C:\Users\Patrick\source\repos\Frogger\Z_DELETE\Frogger_d.exe
   Copying Shaders...
-  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Basic-Instanced.vs
-  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Basic.fs
-  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Basic.vs
-  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\BasicColor.fs
-  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\BasicColor.vs
-  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Line.fs
-  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Line.vs
-  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Minimal.fs
-  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Minimal.vs
-  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\MinimalRed.fs
-  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Simplex.fs
-  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Simplex.vs
-  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Skybox.fs
-  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Skybox.vs
-  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Text.fs
-  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Text.vs
-  F:\Desktop\School_Work\Year3Fall\DSA2\Frogger\include\Simplex\Shaders\Wireframe.fs
+  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Basic-Instanced.vs
+  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Basic.fs
+  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Basic.vs
+  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\BasicColor.fs
+  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\BasicColor.vs
+  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Line.fs
+  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Line.vs
+  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Minimal.fs
+  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Minimal.vs
+  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\MinimalRed.fs
+  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Simplex.fs
+  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Simplex.vs
+  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Skybox.fs
+  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Skybox.vs
+  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Text.fs
+  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Text.vs
+  C:\Users\Patrick\source\repos\Frogger\include\Simplex\Shaders\Wireframe.fs
   17 File(s) copied

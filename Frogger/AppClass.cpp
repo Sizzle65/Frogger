@@ -127,21 +127,35 @@ void Application::Update(void)
 
 	for (int i = 0; i < m_pCarList.size(); i++)
 	{
-		m_pCarList[i]->Update();
 		//Spatial optimization
 		if (m_bSpatial)
 		{
-			if (m_iCreeperRow == m_pCarList[i]->GetRow())
+			Car* thisCar = m_pCarList[i];
+
+			MyRigidBody* thisCarRB = thisCar->GetRigidBody();
+
+			int thisCarRow = thisCar->GetRow();
+			int rowDif = m_iCreeperRow - thisCarRow;
+			if (rowDif < 0)
+				rowDif *= -1;
+
+			if (rowDif < 30)
+				thisCar->Update();
+
+			if (m_iCreeperRow == thisCarRow)
 			{
-				bColliding = m_pCreeperRB->IsColliding(m_pCarList[i]->GetRigidBody());
-				m_pCreeperRB->RemoveCollisionWith(m_pCarList[i]->GetRigidBody());
-				m_pCarList[i]->GetRigidBody()->RemoveCollisionWith(m_pCreeperRB);
-
+				bColliding = m_pCreeperRB->IsColliding(thisCarRB);
+				m_pCreeperRB->RemoveCollisionWith(thisCarRB);
+				thisCarRB->RemoveCollisionWith(m_pCreeperRB);
 			}
-
 		}
 		else
+		{
+			m_pCarList[i]->Update();
+
 			bColliding = m_pCreeperRB->IsColliding(m_pCarList[i]->GetRigidBody());
+		}
+
 		if (bColliding) {
 			m_iDeaths++;
 			break;
