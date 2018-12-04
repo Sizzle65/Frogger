@@ -56,14 +56,14 @@ void Application::ProcessMouseReleased(sf::Event a_event)
 }
 void Application::ProcessMouseScroll(sf::Event a_event)
 {
-	gui.io.MouseWheel = a_event.mouseWheelScroll.delta;
+	/*gui.io.MouseWheel = a_event.mouseWheelScroll.delta;
 	float fSpeed = a_event.mouseWheelScroll.delta;
 	float fMultiplier = sf::Keyboard::isKeyPressed(sf::Keyboard::LShift) ||
 		sf::Keyboard::isKeyPressed(sf::Keyboard::RShift);
 
 	if (fMultiplier)
 		fSpeed *= 2.0f;
-	m_pCameraMngr->MoveForward(-fSpeed);
+	m_pCameraMngr->MoveForward(-fSpeed);*/
 }
 //Keyboard
 void Application::ProcessKeyPressed(sf::Event a_event)
