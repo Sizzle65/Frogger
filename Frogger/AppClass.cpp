@@ -197,6 +197,7 @@ void Application::Update(void)
 		m_pCameraMngr->MoveVertical(-m_fCameraReset);
 		m_fCameraReset = 0.0f;
 		m_iCreeperRow = 0;
+		m_iScore = 0;
 		bColliding = false;
 
 	}

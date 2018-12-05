@@ -46,6 +46,7 @@ class Application
 	float UpperBoundX = 17.0f;
 	float UpperBoundY = 1000.0f;
 	int m_iHighScore = 0;
+	int m_iScore = 0;
 
 private:
 	static ImGuiObject gui; //GUI object

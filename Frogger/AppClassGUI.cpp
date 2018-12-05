@@ -16,6 +16,8 @@ void Application::DrawGUI(void)
 	m_pMeshMngr->PrintLine(std::to_string(m_pSystem->GetFPS()), C_RED);
 	m_pMeshMngr->Print("Deaths: ");
 	m_pMeshMngr->PrintLine(std::to_string(m_iDeaths), C_RED);
+	m_pMeshMngr->Print("Score: ");
+	m_pMeshMngr->PrintLine(std::to_string(m_iScore), C_RED);
 	m_pMeshMngr->Print("High Score: ");
 	m_pMeshMngr->PrintLine(std::to_string(m_iHighScore), C_RED);
 

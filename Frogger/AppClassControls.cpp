@@ -94,9 +94,10 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 			m_v3Creeper.y += m_fGridSnap;
 
 			m_iCreeperRow++;
+			m_iScore++;
 
 			// If creeper goes to a higher row than ever before, increase score
-			if(m_iCreeperRow > m_iHighScore)
+			if(m_iScore > m_iHighScore)
 				m_iHighScore++;
 
 			// If above a threshold, moves the camera with the player
@@ -113,6 +114,7 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 			m_v3Creeper.y -= m_fGridSnap;
 			
 			m_iCreeperRow--;
+			m_iScore--;
 
 			// If above a threshold, moves the camera with the player
 			if (m_v3Creeper.y >= -1) {
