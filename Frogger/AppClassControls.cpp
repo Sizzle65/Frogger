@@ -71,8 +71,47 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 	switch (a_event.key.code)
 	{
 	default: break;
-	case sf::Keyboard::Space:
-		m_sound.play();
+	case sf::Keyboard::X:
+		for (int i = 0; i < 10; i++)
+		{
+			if (m_pCarList.size() % 2 == 0) {
+				Car* thisCar = new Car(
+					vector3(17.0f, -6.5f + 2 * m_pCarList.size(), 0.0f),
+					"Minecraft\\Steve.obj",
+					m_pCarList.size() * 2 + 3,
+					-0.01f);
+				m_pCarList.push_back(thisCar);
+			}
+			else {
+				Car* thisCar = new Car(
+					vector3(-6.0f, -6.5f + 2 * m_pCarList.size(), 0.0f),
+					"Minecraft\\Steve.obj",
+					m_pCarList.size() * 2 + 3,
+					-0.01f);
+				m_pCarList.push_back(thisCar);
+			}
+		}
+		break;
+	case sf::Keyboard::C:
+		for (int i = 0; i < 100; i++)
+		{
+			if (m_pCarList.size() % 2 == 0) {
+				Car* thisCar = new Car(
+					vector3(17.0f, -6.5f + 2 * m_pCarList.size(), 0.0f),
+					"Minecraft\\Steve.obj",
+					m_pCarList.size() * 2 + 3,
+					-0.01f);
+				m_pCarList.push_back(thisCar);
+			}
+			else {
+				Car* thisCar = new Car(
+					vector3(-6.0f, -6.5f + 2 * m_pCarList.size(), 0.0f),
+					"Minecraft\\Steve.obj",
+					m_pCarList.size() * 2 + 3,
+					-0.01f);
+				m_pCarList.push_back(thisCar);
+			}
+		}
 		break;
 	case sf::Keyboard::LShift:
 	case sf::Keyboard::RShift:
@@ -528,7 +567,7 @@ void Application::ProcessKeyboard(void)
 	//}
 
 	//Orient the creeper
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::X))
+	/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::X))
 	{
 		if (m_bModifier)
 			m_qCreeper = m_qCreeper * glm::angleAxis(glm::radians(1.0f), AXIS_X);
@@ -552,7 +591,7 @@ void Application::ProcessKeyboard(void)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
 	{
 		m_qCreeper = quaternion();
-	}
+	}*/
 }
 //Joystick
 void Application::ProcessJoystick(void)

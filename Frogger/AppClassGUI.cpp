@@ -5,7 +5,7 @@ void Application::DrawGUI(void)
 {
 #pragma region Debugging Information
 	//Print info on the screen
-	uint nEmptyLines = 18;
+	uint nEmptyLines = 13;
 	for (uint i = 0; i < nEmptyLines; ++i)
 		m_pMeshMngr->PrintLine("");//Add a line on top
 								   //m_pMeshMngr->Print("						");
@@ -14,6 +14,8 @@ void Application::DrawGUI(void)
 	//m_pMeshMngr->Print("						");
 	m_pMeshMngr->Print("FPS: ");
 	m_pMeshMngr->PrintLine(std::to_string(m_pSystem->GetFPS()), C_RED);
+	m_pMeshMngr->Print("# Cars: ");
+	m_pMeshMngr->PrintLine(std::to_string(m_pCarList.size()), C_RED);
 	m_pMeshMngr->Print("Deaths: ");
 	m_pMeshMngr->PrintLine(std::to_string(m_iDeaths), C_RED);
 	m_pMeshMngr->Print("Score: ");
@@ -45,6 +47,8 @@ void Application::DrawGUI(void)
 			ImGui::Text("	Up: Move Creeper\n");
 			ImGui::Text("	Down: Move Creeper\n");
 			ImGui::Text("	T: Toggle Spatial Optomization\n");
+			ImGui::Text("	X: Spawn 10 Cars\n");
+			ImGui::Text("	C: Spawn 100 Cars\n");
 			ImGui::Separator();
 			ImGui::TextColored(ImColor(255, 255, 0), "SAT is checked.\n");
 			if(m_bSpatial)

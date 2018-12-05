@@ -23,14 +23,9 @@ void Application::InitVariables(void)
 	m_v3Creeper.y = m_v3PlrStart.y;
 	m_v3Creeper.z = m_v3PlrStart.z;
 
-	//steve
-	//m_pSteve = new Model();
-	//m_pSteve->Load("Minecraft\\Steve.obj");
-	//m_pSteveRB = new MyRigidBody(m_pSteve->GetVertexList());
-
 	//set up cars
 	m_pCarList = std::vector<Car*>();
-	for (uint i = 0; i < 2000; i++)
+	for (uint i = 0; i < 4000; i++)
 	{
 		if (i % 2 == 0) {
 			Car* thisCar = new Car(
@@ -48,13 +43,8 @@ void Application::InitVariables(void)
 				-0.01f);
 			m_pCarList.push_back(thisCar);
 		}
-		
-
-		
-
-		
 	}
-
+	std::cout << m_pCarList.size() << std::endl;
 	//White color for grid
 	std::vector<vector3> grass;
 	for (size_t i = 0; i < 6; i++)
@@ -68,30 +58,7 @@ void Application::InitVariables(void)
 	{
 		road.push_back(C_GRAY);
 	}
-	/*
-	//generate checkerboard
-	bool isWhite = true;
-	for (int i = -10; i < 65; i++)
-	{
-		for (int j = -8; j < 17; j++)
-		{
-			Mesh* mesh = new Mesh();
-			if (isWhite)
-			{
-				mesh->SetColorList(white);
-				mesh->AddQuad(vector3(j, i, 0), vector3(j + 1, i, 0), vector3(j, i + 1, 0), vector3(j + 1, i + 1, 0));
-			}
-			else
-			{
-				mesh->SetColorList(black);
-				mesh->AddQuad(vector3(j, i, 0), vector3(j + 1, i, 0), vector3(j, i + 1, 0), vector3(j + 1, i + 1, 0));
-			}
-			isWhite = !isWhite;
-			mesh->CompileOpenGL3X();
-			tiles.push_back(mesh);
-		}
-	}*/
-
+	
 	for (int i = 3; i < UpperBoundY; i += 2) {
 		Mesh* mesh = new Mesh();
 		mesh->SetColorList(road);
@@ -120,25 +87,12 @@ void Application::Update(void)
 	//Update the system so it knows how much time has passed since the last call
 	m_pSystem->Update();
 
-	//Is the ArcBall active?
-	//ArcBall();
-
-	//Is the first person camera active?
-	//CameraRotation();
-
 	//Set model matrix to the creeper
 	matrix4 creeperRotation = glm::rotate(IDENTITY_M4,glm::radians(90.0f),AXIS_X);
 	matrix4 mCreeper = glm::translate(m_v3Creeper) * creeperRotation * ToMatrix4(m_qCreeper) * ToMatrix4(m_qArcBall);
 	
 	m_pCreeper->SetModelMatrix(mCreeper);
 	m_pCreeperRB->SetModelMatrix(mCreeper);
-	//m_pMeshMngr->AddAxisToRenderList(mCreeper);
-
-	//Set model matrix to Steve
-	/*matrix4 mSteve = glm::translate(vector3(2.25f, 0.0f, 0.0f));
-	m_pSteve->SetModelMatrix(mSteve);
-	m_pSteveRB->SetModelMatrix(mSteve);
-	m_pMeshMngr->AddAxisToRenderList(mSteve);*/
 
 	bool bColliding = false;
 
@@ -179,14 +133,9 @@ void Application::Update(void)
 		}
 	}
 
-	//bool bColliding = m_pCreeperRB->IsColliding(m_pSteveRB);
 
 	m_pCreeper->AddToRenderList();
 	m_pCreeperRB->AddToRenderList();
-
-	/*m_pSteve->AddToRenderList();
-	m_pSteveRB->AddToRenderList();*/
-	//m_pSteveRB->AddToRenderList(m_pCreeperRB);
 
 	m_pMeshMngr->Print("Colliding: ");
 	if (bColliding)

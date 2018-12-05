@@ -44,7 +44,7 @@ class Application
 	float lowerBoundX = -8.0f;
 	float lowerBoundY = -10.0f;
 	float UpperBoundX = 17.0f;
-	float UpperBoundY = 1000.0f;
+	float UpperBoundY = 2000.0f;
 	int m_iHighScore = 0;
 	int m_iScore = 0;
 
