@@ -5,7 +5,7 @@ void Application::DrawGUI(void)
 {
 #pragma region Debugging Information
 	//Print info on the screen
-	uint nEmptyLines = 19;
+	uint nEmptyLines = 13;
 	for (uint i = 0; i < nEmptyLines; ++i)
 		m_pMeshMngr->PrintLine("");//Add a line on top
 								   //m_pMeshMngr->Print("						");
@@ -14,8 +14,14 @@ void Application::DrawGUI(void)
 	//m_pMeshMngr->Print("						");
 	m_pMeshMngr->Print("FPS: ");
 	m_pMeshMngr->PrintLine(std::to_string(m_pSystem->GetFPS()), C_RED);
+	m_pMeshMngr->Print("# Cars: ");
+	m_pMeshMngr->PrintLine(std::to_string(m_pCarList.size()), C_RED);
 	m_pMeshMngr->Print("Deaths: ");
 	m_pMeshMngr->PrintLine(std::to_string(m_iDeaths), C_RED);
+	m_pMeshMngr->Print("Score: ");
+	m_pMeshMngr->PrintLine(std::to_string(m_iScore), C_RED);
+	m_pMeshMngr->Print("High Score: ");
+	m_pMeshMngr->PrintLine(std::to_string(m_iHighScore), C_RED);
 
 #pragma endregion
 
@@ -35,18 +41,14 @@ void Application::DrawGUI(void)
 			ImGui::TextColored(v4Color, m_sProgrammer.c_str());
 			ImGui::Text("FrameRate: %.2f [FPS] -> %.3f [ms/frame]\n",
 				ImGui::GetIO().Framerate, 1000.0f / ImGui::GetIO().Framerate);
-			ImGui::Text("Control:\n");
-			ImGui::Text("   WASD: Movement\n");
-			ImGui::Text("	 F1: Perspective\n");
-			ImGui::Text("	 F2: Orthographic X\n");
-			ImGui::Text("	 F3: Orthographic Y\n");
-			ImGui::Text("	 F4: Orthographic Z\n");
-			ImGui::Separator();
-			ImGui::Text("  Left: Move Creeper\n");
-			ImGui::Text(" Right: Move Creeper\n");
-			ImGui::Text("    Up: Move Creeper\n");
-			ImGui::Text("  Down: Move Creeper\n");
-			ImGui::Text(" Shift: Modify Up/Down\n");
+
+			ImGui::Text("	Left: Move Creeper\n");
+			ImGui::Text("	Right: Move Creeper\n");
+			ImGui::Text("	Up: Move Creeper\n");
+			ImGui::Text("	Down: Move Creeper\n");
+			ImGui::Text("	T: Toggle Spatial Optomization\n");
+			ImGui::Text("	X: Spawn 10 Cars\n");
+			ImGui::Text("	C: Spawn 100 Cars\n");
 			ImGui::Separator();
 			ImGui::TextColored(ImColor(255, 255, 0), "SAT is checked.\n");
 			if(m_bSpatial)
