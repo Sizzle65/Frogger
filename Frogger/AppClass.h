@@ -47,6 +47,10 @@ class Application
 	float UpperBoundY = 2000.0f;
 	int m_iHighScore = 0;
 	int m_iScore = 0;
+	bool m_bPauseGame = false;
+
+	float m_fHitYPercentage = 0.0f;
+	float m_fHitSpeed = 0.0f;
 
 private:
 	static ImGuiObject gui; //GUI object
