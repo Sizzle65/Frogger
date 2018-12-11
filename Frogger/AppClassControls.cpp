@@ -68,6 +68,7 @@ void Application::ProcessMouseScroll(sf::Event a_event)
 //Keyboard
 void Application::ProcessKeyPressed(sf::Event a_event)
 {
+	if (m_bPauseGame) return;
 	switch (a_event.key.code)
 	{
 	default: break;
