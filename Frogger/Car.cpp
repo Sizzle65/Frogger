@@ -95,6 +95,11 @@ void Simplex::Car::Update()
 	SetModelMatrix(mCar * carRot);
 	//m_pMeshMngr->AddAxisToRenderList(mCar);
 
+	AddToRenderList();
+}
+
+void Simplex::Car::AddToRenderList()
+{
 	m_pCarModel->AddToRenderList();
 	m_pRigidBody->AddToRenderList();
 }

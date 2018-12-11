@@ -94,64 +94,113 @@ void Application::Update(void)
 	m_pCreeper->SetModelMatrix(mCreeper);
 	m_pCreeperRB->SetModelMatrix(mCreeper);
 
-	bool bColliding = false;
-
-	for (int i = 0; i < m_pCarList.size(); i++)
+	if (!m_bPauseGame)
 	{
-		//Spatial optimization
-		if (m_bSpatial)
+		bool bColliding = false;
+
+		for (int i = 0; i < m_pCarList.size(); i++)
 		{
-			Car* thisCar = m_pCarList[i];
-
-			MyRigidBody* thisCarRB = thisCar->GetRigidBody();
-
-			int thisCarRow = thisCar->GetRow();
-			int rowDif = m_iCreeperRow - thisCarRow;
-			if (rowDif < 0)
-				rowDif *= -1;
-
-			if (rowDif < 30)
-				thisCar->Update();
-
-			if (m_iCreeperRow == thisCarRow)
+			//Spatial optimization
+			if (m_bSpatial)
 			{
-				bColliding = m_pCreeperRB->IsColliding(thisCarRB);
-				m_pCreeperRB->RemoveCollisionWith(thisCarRB);
-				thisCarRB->RemoveCollisionWith(m_pCreeperRB);
+				Car* thisCar = m_pCarList[i];
+
+				MyRigidBody* thisCarRB = thisCar->GetRigidBody();
+
+				int thisCarRow = thisCar->GetRow();
+				int rowDif = m_iCreeperRow - thisCarRow;
+				if (rowDif < 0)
+					rowDif *= -1;
+
+				if (rowDif < 30)
+					thisCar->Update();
+
+				if (m_iCreeperRow == thisCarRow)
+				{
+					bColliding = m_pCreeperRB->IsColliding(thisCarRB);
+					m_pCreeperRB->RemoveCollisionWith(thisCarRB);
+					thisCarRB->RemoveCollisionWith(m_pCreeperRB);
+
+					if (bColliding)
+					{
+						m_fHitSpeed = thisCar->GetSpeed();
+					}
+				}
+			}
+			else
+			{
+				m_pCarList[i]->Update();
+
+				bColliding = m_pCreeperRB->IsColliding(m_pCarList[i]->GetRigidBody());
+			}
+
+			if (bColliding) {
+				m_iDeaths++;
+				break;
 			}
 		}
-		else
+		
+		m_pCreeper->AddToRenderList();
+		m_pCreeperRB->AddToRenderList();
+
+		m_pMeshMngr->Print("Colliding: ");
+
+		//handle collisions
+		if (bColliding)
 		{
-			m_pCarList[i]->Update();
+			m_pMeshMngr->PrintLine("YES!", C_RED);
 
-			bColliding = m_pCreeperRB->IsColliding(m_pCarList[i]->GetRigidBody());
+			m_bPauseGame = true;
+
+			bColliding = false;
+
+			m_fHitYPercentage = rand() % 100 / 100.0f;
 		}
-
-		if (bColliding) {
-			m_iDeaths++;
-			break;
-		}
-	}
-
-
-	m_pCreeper->AddToRenderList();
-	m_pCreeperRB->AddToRenderList();
-
-	m_pMeshMngr->Print("Colliding: ");
-	if (bColliding)
-	{
-		m_pMeshMngr->PrintLine("YES!", C_RED);
-
-		m_v3Creeper = m_v3PlrStart;
-		m_pCameraMngr->MoveVertical(-m_fCameraReset);
-		m_fCameraReset = 0.0f;
-		m_iCreeperRow = 0;
-		m_iScore = 0;
-		bColliding = false;
-
-	}
+		else
+			m_pMeshMngr->PrintLine("no", C_YELLOW);
+	} 
 	else
-		m_pMeshMngr->PrintLine("no", C_YELLOW);
+	{
+		m_v3Creeper.x += m_fHitSpeed;
+		m_v3Creeper.y += m_fHitSpeed * m_fHitYPercentage;
+
+		m_pCreeper->AddToRenderList();
+		m_pCreeperRB->AddToRenderList();
+
+		for (int i = 0; i < m_pCarList.size(); i++)
+		{
+			//Spatial optimization
+			if (m_bSpatial)
+			{
+				Car* thisCar = m_pCarList[i];
+
+				int thisCarRow = thisCar->GetRow();
+				int rowDif = m_iCreeperRow - thisCarRow;
+				if (rowDif < 0)
+					rowDif *= -1;
+
+				if (rowDif < 30)
+					thisCar->AddToRenderList();
+			}
+			else
+			{
+				m_pCarList[i]->AddToRenderList();
+			}
+		}
+
+		//resume game when creeper is off screen
+		if (m_v3Creeper.x > UpperBoundX || m_v3Creeper.x < lowerBoundX)
+		{
+			m_bPauseGame = false;
+
+			m_v3Creeper = m_v3PlrStart;
+			m_pCameraMngr->MoveVertical(-m_fCameraReset);
+			m_fCameraReset = 0.0f;
+			m_iCreeperRow = 0;
+			m_iScore = 0;
+			m_fHitSpeed = 0.0f;
+		}
+	}
 }
 void Application::Display(void)
 {

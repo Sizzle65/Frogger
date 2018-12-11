@@ -83,12 +83,19 @@ public:
 	*/
 	void Update();
 	/*
+	USAGE: adds the car to the renderlist
+	ARGUMENTS: ---
+	OUTPUT: ---
+	*/
+	void AddToRenderList();
+	/*
 	USAGE: returns the rigid body
 	ARGUMENTS: ---
 	OUTPUT: this car's rigid body
 	*/
 	MyRigidBody* GetRigidBody() { return m_pRigidBody; }
 	int GetRow() { return m_iCarRow; }
+	float GetSpeed() { return m_fSpeed * m_sDirection; }
 private:
 	/*
 	USAGE: copy constructor
