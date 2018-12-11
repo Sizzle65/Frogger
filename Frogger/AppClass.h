@@ -39,11 +39,18 @@ class Application
 	String m_sProgrammer = "Team Frogger - ExampleEmail@rit.edu"; //programmer
 
 	float m_fGridSnap = 1.0f; //distance between snap points for movement
+	float m_fCameraReset = 0.0f;
 	int m_iDeaths = 0;
 	float lowerBoundX = -8.0f;
 	float lowerBoundY = -10.0f;
 	float UpperBoundX = 17.0f;
-	float UpperBoundY = 400.0f;
+	float UpperBoundY = 2000.0f;
+	int m_iHighScore = 0;
+	int m_iScore = 0;
+	bool m_bPauseGame = false;
+
+	float m_fHitYPercentage = 0.0f;
+	float m_fHitSpeed = 0.0f;
 
 private:
 	static ImGuiObject gui; //GUI object

@@ -56,14 +56,14 @@ void Application::ProcessMouseReleased(sf::Event a_event)
 }
 void Application::ProcessMouseScroll(sf::Event a_event)
 {
-	gui.io.MouseWheel = a_event.mouseWheelScroll.delta;
+	/*gui.io.MouseWheel = a_event.mouseWheelScroll.delta;
 	float fSpeed = a_event.mouseWheelScroll.delta;
 	float fMultiplier = sf::Keyboard::isKeyPressed(sf::Keyboard::LShift) ||
 		sf::Keyboard::isKeyPressed(sf::Keyboard::RShift);
 
 	if (fMultiplier)
 		fSpeed *= 2.0f;
-	m_pCameraMngr->MoveForward(-fSpeed);
+	m_pCameraMngr->MoveForward(-fSpeed);*/
 }
 //Keyboard
 void Application::ProcessKeyPressed(sf::Event a_event)
@@ -71,8 +71,47 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 	switch (a_event.key.code)
 	{
 	default: break;
-	case sf::Keyboard::Space:
-		m_sound.play();
+	case sf::Keyboard::X:
+		for (int i = 0; i < 10; i++)
+		{
+			if (m_pCarList.size() % 2 == 0) {
+				Car* thisCar = new Car(
+					vector3(17.0f, -6.5f + 2 * m_pCarList.size(), 0.0f),
+					"Minecraft\\Steve.obj",
+					m_pCarList.size() * 2 + 3,
+					-0.01f);
+				m_pCarList.push_back(thisCar);
+			}
+			else {
+				Car* thisCar = new Car(
+					vector3(-6.0f, -6.5f + 2 * m_pCarList.size(), 0.0f),
+					"Minecraft\\Steve.obj",
+					m_pCarList.size() * 2 + 3,
+					-0.01f);
+				m_pCarList.push_back(thisCar);
+			}
+		}
+		break;
+	case sf::Keyboard::C:
+		for (int i = 0; i < 100; i++)
+		{
+			if (m_pCarList.size() % 2 == 0) {
+				Car* thisCar = new Car(
+					vector3(17.0f, -6.5f + 2 * m_pCarList.size(), 0.0f),
+					"Minecraft\\Steve.obj",
+					m_pCarList.size() * 2 + 3,
+					-0.01f);
+				m_pCarList.push_back(thisCar);
+			}
+			else {
+				Car* thisCar = new Car(
+					vector3(-6.0f, -6.5f + 2 * m_pCarList.size(), 0.0f),
+					"Minecraft\\Steve.obj",
+					m_pCarList.size() * 2 + 3,
+					-0.01f);
+				m_pCarList.push_back(thisCar);
+			}
+		}
 		break;
 	case sf::Keyboard::LShift:
 	case sf::Keyboard::RShift:
@@ -94,10 +133,17 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 			m_v3Creeper.y += m_fGridSnap;
 
 			m_iCreeperRow++;
+			m_iScore++;
+
+			// If creeper goes to a higher row than ever before, increase score
+			if(m_iScore > m_iHighScore)
+				m_iHighScore++;
 
 			// If above a threshold, moves the camera with the player
-			if (m_v3Creeper.y >= 0)
+			if (m_v3Creeper.y >= 0) {
 				m_pCameraMngr->MoveVertical(m_fGridSnap);
+				m_fCameraReset += m_fGridSnap;
+			}
 		}
 		
 		
@@ -107,15 +153,18 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 			m_v3Creeper.y -= m_fGridSnap;
 			
 			m_iCreeperRow--;
+			m_iScore--;
 
 			// If above a threshold, moves the camera with the player
-			if(m_v3Creeper.y >= -1)
+			if (m_v3Creeper.y >= -1) {
 				m_pCameraMngr->MoveVertical(-m_fGridSnap);
+				m_fCameraReset -= m_fGridSnap;
+			}
 		}
 		
 
 		break;
-	case sf::Keyboard::O:
+	case sf::Keyboard::T:
 		m_bSpatial = !m_bSpatial;
 		break;
 	}
@@ -450,7 +499,7 @@ void Application::ProcessKeyboard(void)
 	if (bMultiplier)
 		fMultiplier = 5.0f;
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+	/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		m_pCameraMngr->MoveForward(m_fMovementSpeed * fMultiplier);
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
@@ -466,7 +515,7 @@ void Application::ProcessKeyboard(void)
 		m_pCameraMngr->MoveVertical(-m_fMovementSpeed * fMultiplier);
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
-		m_pCameraMngr->MoveVertical(m_fMovementSpeed * fMultiplier);
+		m_pCameraMngr->MoveVertical(m_fMovementSpeed * fMultiplier);*/
 #pragma endregion
 	////move the creeper
 	//if (!m_bLeftDown && sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
@@ -518,7 +567,7 @@ void Application::ProcessKeyboard(void)
 	//}
 
 	//Orient the creeper
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::X))
+	/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::X))
 	{
 		if (m_bModifier)
 			m_qCreeper = m_qCreeper * glm::angleAxis(glm::radians(1.0f), AXIS_X);
@@ -542,7 +591,7 @@ void Application::ProcessKeyboard(void)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
 	{
 		m_qCreeper = quaternion();
-	}
+	}*/
 }
 //Joystick
 void Application::ProcessJoystick(void)
